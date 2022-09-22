@@ -1,5 +1,8 @@
 package com.develogical;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 public class QueryProcessor {
 
     public String process(String query) {
@@ -11,10 +14,20 @@ public class QueryProcessor {
         if(query.contains("what is your name")) {
             return "notfluffy";
         }
-        // String parsed = query
-        // parsed.parse
+
+    
         if(query.contains("which of the following numbers is the largest")) {
-            return "notfluffy";
+            int maximum = 0;
+            String parsed = query;
+            Pattern regex = Pattern.compile("which of the following numbers is the largest: (\\d+), (\\d+), (\\d+)");
+            Matcher matcher = regex.matcher(query);
+            for (int i = 1; i < 4; i++){
+                if (Integer.parseInt(matcher.group(i)) > maximum) {
+                    maximum = Integer.parseInt(matcher.group(i));
+                }
+            }
+            return Integer.toString(maximum);
+
         }
         return "";
 

@@ -9,7 +9,12 @@ public class QueryProcessor {
                     "writer in the English language and the world's pre-eminent dramatist.";
         }
         if(query.contains("what is your name")) {
-            return "newplayer";
+            return "notfluffy";
+        }
+        // String parsed = query
+        // parsed.parse
+        if(query.contains("which of the following numbers is the largest")) {
+            return "notfluffy";
         }
         return "";
 
